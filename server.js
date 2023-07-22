@@ -13,6 +13,7 @@ const app = express()
 let PORT = process.env.PORT || 3001
 
 const spotifyController = require("./controllers/spotify")
+const postsController = require("./controllers/posts")
 
 // connect to database
 
@@ -37,6 +38,11 @@ app.use(express.urlencoded({ extended: false }))
 // routes
 
 app.use("/spotify", spotifyController)
+app.use("/posts", postsController)
+
+
+// seed
+
 
 // listen
 

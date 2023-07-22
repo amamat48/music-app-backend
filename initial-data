@@ -1,0 +1,3 @@
+const postdata = [
+    {title: 'Just testing it out', content: 'Just want to test this website out'}
+]

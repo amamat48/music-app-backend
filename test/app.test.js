@@ -1,8 +1,9 @@
 const spotify = require("../controllers/spotify");
+const posts = require("../controllers/posts");
 const request = require("supertest");
 const express = require("express");
 
-// artist route tests
+// spotify route tests
 describe("GET /spotify/artist", () => {
   const app = express();
   app.use("/", spotify);
@@ -33,4 +34,20 @@ describe("GET /spotify/artist", () => {
 
 });
 
+// postt route tests
+describe("/posts", () => {
+  const app = express();
+  app.use("/", posts);
+  describe('GET /posts', () => {
+    it("should return 200", async () => {
+      const res = await request(app).get("/posts");
+      expect(res.status).toBe(200);
+    });
+
+    it("should have json as content-type", async () => {
+      const res = await request(app).get("/posts");
+      expect(res.type).toBe("application/json");
+    });
+  })
+})
 
