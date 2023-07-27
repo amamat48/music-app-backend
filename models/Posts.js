@@ -5,15 +5,24 @@ const model = mongoose.model
 const postSchema = new Schema({
     title: {
         type: String,
+        required: true
     },
     content: {
         type: String,
+        required: true
     },
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: false
-    }
+    },
+    Likes: {
+        type: Number,
+        default: 0
+    },
+    Comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comments',
+    }]
 })
 
 const Post = model('Posts', postSchema)
