@@ -20,8 +20,8 @@ const userSchema = new Schema(
       minlength: 8,
     },
     playlists: {
-      type: [{ name: String, songs: [] }],
-      default: [],
+      type: Schema.Types.ObjectId,
+      ref: 'Playlists'
     },
     favoriteSongs: {
       type: Array,
